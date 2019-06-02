@@ -1,0 +1,90 @@
+<html>
+<head>
+<script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+<script src="vertx-eventbus.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script type="text/javascript">
+	var eb = new EventBus("http://" + window.location.host + "/eventbus");
+	console.log("http://" + window.location.host + "/eventbus");
+	eb.onopen = function() {
+		eb.registerHandler("pool-feed", function(err, msg) {
+			var elem = document.getElementById("events");
+			elem.innerText = elem.innerText + '\n' + new Date() + ' '
+					+ msg.body
+		})
+
+		/* eb.registerHandler("events-config", function(err, msg) {
+			console.log('message for events-config ');
+			console.log(msg.body);
+		// 			document.getElementById("json").innerHTML = JSON.stringify(msg.body, undefined, 2);
+		}) */
+
+		eb.registerHandler("pool-json", function(err, msg) {
+			/* console.log('message for events-json ');
+			var tmpData = JSON.parse(msg.body);
+			 var formattedData = JSON.stringify(tmpData, null, '\t');
+			 $('#json').text(formattedData); */
+			/* var elem = document.getElementById("objects");
+			var elem1 = document.getElementById("idleobjects");
+			var elem2 = document.getElementById("maxwait");
+			var msgArr = msg.split(',');
+			elem.innerText = msgArr[0];
+			elem1.innerText = msgArr[1];
+			elem2.innerText = msgArr[2]; */
+			var elem = document.getElementById("json");
+			elem.innerText = msg.body;
+		})
+	}
+
+	function stopPublishing() {
+		console.log("sending publish stop message to events-config address");
+		eb.publish('pool-config', 'StopPublish');
+	}
+
+	function startPublishing() {
+		console.log("sending publish start message to events-config address");
+		//alert(document.getElementById("rate").value);
+		eb.publish('pool-config', 'StartPublish:'
+				+ document.getElementById("objects").value);
+	}
+
+	function reset() {
+		var elem = document.getElementById("events");
+		elem.innerText = "";
+	}
+</script>
+
+</head>
+
+<body>
+
+	<div class="w3-container w3-green">
+		<h1>Telemetry Data Processor</h1>
+	</div>
+
+	<div class="w3-row-padding">
+		<div class="w3-third">
+			<h2>Configure Session Pool</h2>
+			<input type="text" id="objects" value="2" /> <p>Session Object</p>
+			<input type="text" id="idleobjects" value="2" /> <p>Max Idle Objects</p>
+			<input type="text" id="maxwait" value="2" /> <p>Max Wait Time</p>
+			<input type="button" value="StartPublish" onclick="startPublishing()">
+			<input type="button" value="StopPublish" onclick="stopPublishing()">
+			<p>* Please note that a single thread executor publishes data
+				onto kafka topics in an asynchronous manner, tread with caution
+				while choosing to publish large number of messages</p>
+			<pre id="json"></pre>
+
+		</div>
+
+		<div class="w3-third">
+			<input type="button" onclick="reset()" value="CLEAR">
+			<pre id="events"> </pre>
+		</div>
+
+	</div>
+
+</body>
+</html>

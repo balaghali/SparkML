@@ -1,0 +1,516 @@
+{
+  "telemetryEventCategory": "systemInfo",
+  "httpProfiles": {
+    "/Common/telemetry0": {
+      "numberReqs": 75,
+      "v10Resp": 83,
+      "maxKeepaliveReq": 68,
+      "jsonMember3xxResp": 27,
+      "postReqs": 52,
+      "v10Reqs": 72,
+      "respGreaterThan2m": 3,
+      "getReqs": 54,
+      "jsonMember4xxResp": 65,
+      "cookiePersistInserts": 5,
+      "v11Resp": 18,
+      "jsonMember5xxResp": 61,
+      "application": "XoTsHPTFzH",
+      "respLessThan2m": 58,
+      "v9Resp": 28,
+      "name": "/Common/telemetry0",
+      "jsonMember2xxResp": 33,
+      "v11Reqs": 42,
+      "v9Reqs": 9,
+      "tenant": "SEATTLE_DEV"
+    },
+    "/Common/telemetry1": {
+      "numberReqs": 81,
+      "v10Resp": 75,
+      "maxKeepaliveReq": 74,
+      "jsonMember3xxResp": 61,
+      "postReqs": 15,
+      "v10Reqs": 59,
+      "respGreaterThan2m": 97,
+      "getReqs": 78,
+      "jsonMember4xxResp": 96,
+      "cookiePersistInserts": 50,
+      "v11Resp": 28,
+      "jsonMember5xxResp": 84,
+      "application": "MRqaLZypjR",
+      "respLessThan2m": 15,
+      "v9Resp": 26,
+      "name": "/Common/telemetry1",
+      "jsonMember2xxResp": 45,
+      "v11Reqs": 31,
+      "v9Reqs": 93,
+      "tenant": "SEATTLE_PROD"
+    }
+  },
+  "system": {
+    "memory": 55,
+    "provisionReady": "yes",
+    "description": "Telemetry BIG-IP",
+    "failoverStatus": "ACTIVE",
+    "configReady": "yes",
+    "marketingName": "BIG-IP Virtual Edition",
+    "tmmCpu": 1,
+    "chassisId": "9c3abad5-513a-1c43-5bc2be62e957",
+    "hostname": "telemetry.bigip.com",
+    "baseMac": "00:0d:3a:30:34:51",
+    "failoverColor": "green",
+    "syncMode": "standalone",
+    "systemTimestamp": "2019-04-01T16:33:51.900",
+    "callBackUrl": "https://10.0.1.100",
+    "tmmMemory": 11,
+    "syncColor": "green",
+    "syncSummary": "",
+    "cpu": 4,
+    "platformId": "Z100",
+    "tmmTraffic": {
+      "clientSideTraffic.bitsIn": 307499656,
+      "clientSideTraffic.bitsOut": 910272813,
+      "serverSideTraffic.bitsIn": 266986712,
+      "serverSideTraffic.bitsOut": 908368144
+    },
+    "version": "14.0.0.1",
+    "versionBuild": "0.0.2",
+    "location": "Seattle",
+    "licenseReady": "yes",
+    "syncStatus": "Standalone",
+    "provisioning": {
+      "/var/0": {
+        "name": "/var/0",
+        "level": "nominal"
+      },
+      "/var/1": {
+        "name": "/var/1",
+        "level": "nominal"
+      },
+      "/var/2": {
+        "name": "/var/2",
+        "level": "nominal"
+      },
+      "/var/3": {
+        "name": "/var/3",
+        "level": "nominal"
+      },
+      "/var/4": {
+        "name": "/var/4",
+        "level": "nominal"
+      },
+      "/var/5": {
+        "name": "/var/5",
+        "level": "nominal"
+      }
+    },
+    "diskLatency": {
+      "/var/0": {
+        "name": "/var/0",
+        "rsec/s": "854278",
+        "wsec_s": "32%"
+      },
+      "/var/1": {
+        "name": "/var/1",
+        "rsec/s": "596276",
+        "wsec_s": "20%"
+      },
+      "/var/2": {
+        "name": "/var/2",
+        "rsec/s": "473345",
+        "wsec_s": "56%"
+      },
+      "/var/3": {
+        "name": "/var/3",
+        "rsec/s": "534002",
+        "wsec_s": "22%"
+      },
+      "/var/4": {
+        "name": "/var/4",
+        "rsec/s": "606436",
+        "wsec_s": "0%"
+      }
+    },
+    "diskStorage": {
+      "/log": {
+        "Capacity": "86%",
+        "name": "/log",
+        "1024-blocks": "567865"
+      },
+      "/": {
+        "Capacity": "66%",
+        "name": "/",
+        "1024-blocks": "446449"
+      }
+    },
+    "networkInterfaces": {
+      "/var/0": {
+        "status": "up",
+        "name": "/var/0",
+        "counters.bitsIn": 424935,
+        "counters.bitsOut": 75
+      },
+      "/var/1": {
+        "status": "up",
+        "name": "/var/1",
+        "counters.bitsIn": 770515,
+        "counters.bitsOut": 11
+      },
+      "/var/2": {
+        "status": "up",
+        "name": "/var/2",
+        "counters.bitsIn": 657778,
+        "counters.bitsOut": 98
+      }
+    }
+  },
+  "telemetryServiceInfo": {
+    "cycleEnd": "Apr 1, 2019 4:33:51 PM",
+    "cycleStart": "Apr 1, 2019 4:33:55 PM",
+    "pollingInterval": 292
+  },
+  "pools": {
+    "/Common0/app.ap0/adlf0": {
+      "activeMemberCnt": 2,
+      "availabilityState": "bootstraping",
+      "enabledState": "enabled",
+      "name": "/Common0/app.ap0/adlf0",
+      "tenant": "Common0",
+      "application": "app.ap0",
+      "serverside.bitsIn": 5777570,
+      "serverside.bitsOut": 3810258,
+      "serverside.currConns": 357,
+      "members": {
+        "/Common/10.0.0.2": {
+          "serverside.bitsIn": 25825768,
+          "serverside.bitsOut": 114425928,
+          "enabledState": "enabled",
+          "availabilityState": "available",
+          "port": 80,
+          "serverside.curConns": 0,
+          "addr": "10.0.3.2"
+        },
+        "/Common/10.0.0.3": {
+          "serverside.bitsIn": 25825768,
+          "serverside.bitsOut": 114425928,
+          "enabledState": "enabled",
+          "availabilityState": "available",
+          "port": 80,
+          "serverside.curConns": 0,
+          "addr": "10.0.3.5"
+        }
+      }
+    },
+    "/Common1/app.ap1/adlf1": {
+      "activeMemberCnt": 84,
+      "availabilityState": "shuttingdown",
+      "enabledState": "enabled",
+      "name": "/Common1/app.ap1/adlf1",
+      "tenant": "Common1",
+      "application": "app.ap1",
+      "serverside.bitsIn": 3288989,
+      "serverside.bitsOut": 5501429,
+      "serverside.currConns": 447,
+      "members": {
+        "/Common/10.0.0.2": {
+          "serverside.bitsIn": 25825768,
+          "serverside.bitsOut": 114425928,
+          "enabledState": "enabled",
+          "availabilityState": "available",
+          "port": 80,
+          "serverside.curConns": 0,
+          "addr": "10.0.3.2"
+        },
+        "/Common/10.0.0.3": {
+          "serverside.bitsIn": 25825768,
+          "serverside.bitsOut": 114425928,
+          "enabledState": "enabled",
+          "availabilityState": "available",
+          "port": 80,
+          "serverside.curConns": 0,
+          "addr": "10.0.3.5"
+        }
+      }
+    },
+    "/Common2/app.ap2/adlf2": {
+      "activeMemberCnt": 74,
+      "availabilityState": "offline",
+      "enabledState": "disabled",
+      "name": "/Common2/app.ap2/adlf2",
+      "tenant": "Common2",
+      "application": "app.ap2",
+      "serverside.bitsIn": 1212835,
+      "serverside.bitsOut": 2698857,
+      "serverside.currConns": 172,
+      "members": {
+        "/Common/10.0.0.2": {
+          "serverside.bitsIn": 25825768,
+          "serverside.bitsOut": 114425928,
+          "enabledState": "enabled",
+          "availabilityState": "available",
+          "port": 80,
+          "serverside.curConns": 0,
+          "addr": "10.0.3.2"
+        },
+        "/Common/10.0.0.3": {
+          "serverside.bitsIn": 25825768,
+          "serverside.bitsOut": 114425928,
+          "enabledState": "enabled",
+          "availabilityState": "available",
+          "port": 80,
+          "serverside.curConns": 0,
+          "addr": "10.0.3.5"
+        }
+      }
+    }
+  },
+  "virtualServers": {
+    "/Common0/app.ap0/adlf0": {
+      "clientside_bitsIn": 16167591,
+      "clientside_bitsOut": 21966374,
+      "clientside_curConns": 392,
+      "destination": "202.227.242.27",
+      "availabilityState": "available",
+      "enabledState": "enabled",
+      "name": "/Common0/app.ap0/adlf0",
+      "tenant": "Common0",
+      "application": "app.ap0",
+      "department": "PD",
+      "costCenter": "7801",
+      "owner": "davey"
+    },
+    "/Common1/app.ap1/adlf1": {
+      "clientside_bitsIn": 1611898,
+      "clientside_bitsOut": 9707444,
+      "clientside_curConns": 301,
+      "destination": "46.181.138.143",
+      "availabilityState": "available",
+      "enabledState": "enabled",
+      "name": "/Common1/app.ap1/adlf1",
+      "tenant": "Common1",
+      "application": "app.ap1",
+      "department": "PD",
+      "costCenter": "7801",
+      "owner": "davey"
+    },
+    "/Common2/app.ap2/adlf2": {
+      "clientside_bitsIn": 6303716,
+      "clientside_bitsOut": 19474467,
+      "clientside_curConns": 958,
+      "destination": "86.235.112.73",
+      "availabilityState": "available",
+      "enabledState": "enabled",
+      "name": "/Common2/app.ap2/adlf2",
+      "tenant": "Common2",
+      "application": "app.ap2",
+      "department": "PD",
+      "costCenter": "7801",
+      "owner": "davey"
+    }
+  },
+  "serverSslProfiles": {
+    "/Common/Serverssl0": {
+      "activeHandshakeRejected": 76,
+      "currentCompatibleConnections": 70,
+      "currentConnections": 34,
+      "currentNativeConnections": 59,
+      "currentActiveHandshakes": 56,
+      "decryptedBytesIn": 87,
+      "decryptedBytesOut": 20,
+      "encryptedBytesIn": 99,
+      "encryptedBytesOut": 40,
+      "fatalAlerts": 82,
+      "handshakeFailures": 46,
+      "peercertInvalid": 12,
+      "peercertNone": 16,
+      "peercertValid": 45,
+      "protocolUses_dtlsv1": 97,
+      "protocolUses_sslv2": 88,
+      "protocolUses_sslv3": 82,
+      "protocolUses_tlsv1": 75,
+      "protocolUses_tlsv1_1": 1,
+      "protocolUses_tlsv1_2": 50,
+      "protocolUses_tlsv1_3": 49,
+      "recordsIn": 39,
+      "recordsOut": 41,
+      "name": "/Common/Serverssl0",
+      "tenant": "INDIA_DEV",
+      "application": "tpmZJlCjQD"
+    },
+    "/Common/Serverssl1": {
+      "activeHandshakeRejected": 52,
+      "currentCompatibleConnections": 79,
+      "currentConnections": 71,
+      "currentNativeConnections": 24,
+      "currentActiveHandshakes": 49,
+      "decryptedBytesIn": 8,
+      "decryptedBytesOut": 30,
+      "encryptedBytesIn": 84,
+      "encryptedBytesOut": 2,
+      "fatalAlerts": 73,
+      "handshakeFailures": 23,
+      "peercertInvalid": 41,
+      "peercertNone": 42,
+      "peercertValid": 77,
+      "protocolUses_dtlsv1": 64,
+      "protocolUses_sslv2": 43,
+      "protocolUses_sslv3": 80,
+      "protocolUses_tlsv1": 77,
+      "protocolUses_tlsv1_1": 60,
+      "protocolUses_tlsv1_2": 75,
+      "protocolUses_tlsv1_3": 53,
+      "recordsIn": 53,
+      "recordsOut": 74,
+      "name": "/Common/Serverssl1",
+      "tenant": "SEATTLE_TEST",
+      "application": "dPoOWzmQGF"
+    }
+  },
+  "ltmPolicies": {
+    "/Common/telemetry0": {
+      "application": "gwBIxvhAnq",
+      "name": "/Common/telemetry0",
+      "invoked": 2168,
+      "actions": {
+        "default:1": {
+          "invoked": 2168,
+          "succeeded": 2168
+        },
+        "default:0": {
+          "invoked": 2168,
+          "succeeded": 2168
+        }
+      },
+      "tenant": "INDIA_TEST",
+      "succeeded": 2168
+    },
+    "/Common/telemetry1": {
+      "application": "OKfjvJpIcW",
+      "name": "/Common/telemetry1",
+      "invoked": 1096,
+      "actions": {
+        "default:1": {
+          "invoked": 1096,
+          "succeeded": 1096
+        },
+        "default:0": {
+          "invoked": 1096,
+          "succeeded": 1096
+        }
+      },
+      "tenant": "SEATTLE_TEST",
+      "succeeded": 1096
+    }
+  },
+  "sslCerts": {
+    "f5-bundle-adlf-0.cert": {
+      "expirationDate": 100082,
+      "expirationString": "2019-04-01T16:33:51.900",
+      "subject": "disabled",
+      "name": "f5-bundle-adlf-0.cert",
+      "issuer": "HGwfwZWOfmMIBAWjyqwAhdVRUhQhBtMlEqaNdlBcvJahUjGlWQXcTCQIFMQemrZwjoiAMxxAzUhVmLmgZXTSoMQTqNhkEYbHbAWp"
+    },
+    "f5-bundle-adlf-1.cert": {
+      "expirationDate": 106103,
+      "expirationString": "2019-04-01T16:33:51.900",
+      "subject": "enabled",
+      "name": "f5-bundle-adlf-1.cert",
+      "issuer": "dEyJvPyLbBFojqKqkKXlrUWPKEzDBPgeLzQqJiRSmklYVXYRLCODetjRvhciYGKudIAjqZmQJnjVcQyCIyTmEhWojrtIdUaPORYa"
+    },
+    "f5-bundle-adlf-2.cert": {
+      "expirationDate": 105551,
+      "expirationString": "2019-04-01T16:33:51.900",
+      "subject": "disabled",
+      "name": "f5-bundle-adlf-2.cert",
+      "issuer": "rSvUXtvbeJTQSpTxKUTOVTjDYlpURzqiXYlCAaAMFOFNxNzYzzMvMeWRkGaPjbIQnNLlVUUKhfUSeJSsxoiJrXusgBmlQeBPrQpO"
+    }
+  },
+  "clientSslProfiles": {
+    "/Common/ClientSSl0": {
+      "activeHandshakeRejected": 88,
+      "currentCompatibleConnections": 92,
+      "currentConnections": 86,
+      "currentNativeConnections": 70,
+      "currentActiveHandshakes": 49,
+      "decryptedBytesIn": 72,
+      "decryptedBytesOut": 76,
+      "encryptedBytesIn": 99,
+      "encryptedBytesOut": 88,
+      "fatalAlerts": 88,
+      "handshakeFailures": 20,
+      "peercertInvalid": 82,
+      "peercertNone": 21,
+      "peercertValid": 6,
+      "protocolUses_dtlsv1": 94,
+      "protocolUses_sslv2": 57,
+      "protocolUses_sslv3": 22,
+      "protocolUses_tlsv1": 78,
+      "protocolUses_tlsv1_1": 9,
+      "protocolUses_tlsv1_2": 73,
+      "protocolUses_tlsv1_3": 29,
+      "recordsIn": 95,
+      "recordsOut": 21,
+      "sniRejects": 2,
+      "name": "/Common/ClientSSl0",
+      "tenant": "SEATTLE_DEV",
+      "application": "tQoGthnXkK"
+    },
+    "/Common/ClientSSl1": {
+      "activeHandshakeRejected": 53,
+      "currentCompatibleConnections": 6,
+      "currentConnections": 19,
+      "currentNativeConnections": 52,
+      "currentActiveHandshakes": 79,
+      "decryptedBytesIn": 58,
+      "decryptedBytesOut": 43,
+      "encryptedBytesIn": 3,
+      "encryptedBytesOut": 88,
+      "fatalAlerts": 50,
+      "handshakeFailures": 17,
+      "peercertInvalid": 28,
+      "peercertNone": 97,
+      "peercertValid": 36,
+      "protocolUses_dtlsv1": 2,
+      "protocolUses_sslv2": 14,
+      "protocolUses_sslv3": 35,
+      "protocolUses_tlsv1": 17,
+      "protocolUses_tlsv1_1": 19,
+      "protocolUses_tlsv1_2": 40,
+      "protocolUses_tlsv1_3": 65,
+      "recordsIn": 64,
+      "recordsOut": 99,
+      "sniRejects": 1,
+      "name": "/Common/ClientSSl1",
+      "tenant": "INDIA_TEST",
+      "application": "MgjVYXLojh"
+    },
+    "/Common/ClientSSl2": {
+      "activeHandshakeRejected": 43,
+      "currentCompatibleConnections": 43,
+      "currentConnections": 92,
+      "currentNativeConnections": 92,
+      "currentActiveHandshakes": 16,
+      "decryptedBytesIn": 6,
+      "decryptedBytesOut": 76,
+      "encryptedBytesIn": 67,
+      "encryptedBytesOut": 79,
+      "fatalAlerts": 34,
+      "handshakeFailures": 2,
+      "peercertInvalid": 91,
+      "peercertNone": 4,
+      "peercertValid": 32,
+      "protocolUses_dtlsv1": 57,
+      "protocolUses_sslv2": 9,
+      "protocolUses_sslv3": 39,
+      "protocolUses_tlsv1": 27,
+      "protocolUses_tlsv1_1": 69,
+      "protocolUses_tlsv1_2": 84,
+      "protocolUses_tlsv1_3": 54,
+      "recordsIn": 12,
+      "recordsOut": 58,
+      "sniRejects": 3,
+      "name": "/Common/ClientSSl2",
+      "tenant": "INDIA_DEV",
+      "application": "NTRFthrzWg"
+    }
+  }
+}

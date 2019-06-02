@@ -1,0 +1,80 @@
+<html>
+<head>
+<script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+<script src="vertx-eventbus.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script type="text/javascript">
+	var eb = new EventBus("http://"+window.location.host+"/eventbus");
+	console.log("http://"+window.location.host+"/eventbus");
+	eb.onopen = function() {
+		eb.registerHandler("events-feed", function(err, msg) {
+			var elem = document.getElementById("events");
+			elem.innerText = elem.innerText + '\n' + new Date().toLocaleTimeString() + ' '
+					+ msg.body
+		})
+		
+		/* eb.registerHandler("events-config", function(err, msg) {
+			console.log('message for events-config ');
+			console.log(msg.body);
+// 			document.getElementById("json").innerHTML = JSON.stringify(msg.body, undefined, 2);
+		}) */
+		
+			eb.registerHandler("events-json", function(err, msg) {
+			console.log('message for events-json ');
+			var tmpData = JSON.parse(msg.body);
+			 var formattedData = JSON.stringify(tmpData, null, '\t');
+			 $('#json').text(formattedData);
+		})
+	}
+	
+	function stopPublishing(){
+		console.log("sending publish stop message to events-config address");
+		eb.publish('events-config', 'StopPublish');
+	}
+	
+	function startPublishing(){
+		console.log("sending publish start message to events-config address");
+		//alert(document.getElementById("rate").value);
+		eb.publish('events-config', 'StartPublish:');
+	}
+	
+	function reset() {
+		var elem = document.getElementById("events");
+		elem.innerText = "";
+	}
+</script>
+
+</head>
+
+<body>
+
+	<div class="w3-container w3-red">
+		<h1>ML Data Processor</h1>
+	</div>
+
+	<div class="w3-row-padding">
+		<div class="w3-half">
+			<h2>Configuration Instructions</h2>
+			<p>1. Define template : <a href="/templateDef" target="_blank">New template</a></p>
+			<p>2. Once template is defined and set click startIncremental training. </p>
+			<p>3. Navigate to /templateDef to look at incoming data and results of applied models </p>
+			<p>4. Click Terminate to stop the ml algorithm processing </p>
+			<input type="button" value="StartIncrementalTraining" onclick="startPublishing()">
+			<input type="button" value="Terminate" onclick="stopPublishing()">
+			<p>* Default ML Algorithm LinearRegresion </p>
+				<pre id="template-def"></pre>
+  				<pre id="json"></pre>
+		
+		</div>
+
+		<div class="w3-third">
+			<input type="button" onclick="reset()" value="CLEAR">
+			<pre id="events"> </pre>
+		</div>
+		
+	</div>
+
+</body>
+</html>

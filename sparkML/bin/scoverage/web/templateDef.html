@@ -1,0 +1,197 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script src="//cdn.jsdelivr.net/sockjs/0.3.4/sockjs.min.js"></script>
+<script src="vertx-eventbus.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+* {
+	box-sizing: border-box;
+}
+
+#myTable {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #ddd;
+	font-size: 18px;
+	table-layout: fixed;
+}
+
+#myTable th, #myTable td {
+	text-align: left;
+	padding: 12px;
+}
+
+#myTable tr {
+	border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+	background-color: #f1f1f1;
+}
+</style>
+<script type="text/javascript">
+	var eb = new EventBus("http://"+window.location.host+"/eventbus");
+	console.log("http://"+window.location.host+"/eventbus");
+	eb.onopen = function() {
+		eb.registerHandler("template-feed", function(err, msg) {
+			var elem = document.getElementById("events");
+			elem.innerText = elem.innerText + '\n' + new Date().toLocaleTimeString() + ' '
+					+ msg.body
+		})
+		
+		/* eb.registerHandler("events-config", function(err, msg) {
+			console.log('message for events-config ');
+			console.log(msg.body);
+// 			document.getElementById("json").innerHTML = JSON.stringify(msg.body, undefined, 2);
+		}) */
+		
+			eb.registerHandler("template-json", function(err, msg) {
+			console.log('message for events-json ');
+			var tmpData = JSON.parse(msg.body);
+			 var formattedData = JSON.stringify(tmpData, null, '\t');
+			 $('#json').text(formattedData);
+		})
+	}
+	
+	function stopPublishing(){
+		console.log("sending publish stop message to events-config address");
+		eb.publish('template-config', 'StopPublish');
+	}
+	
+	function startPublishing(){
+		console.log("sending publish start message to events-config address");
+		//alert(document.getElementById("rate").value);
+		eb.publish('template-config', 'StartPublish:');
+	}
+	
+	function reset() {
+		 tbl = document.getElementById("myTable");
+		  tr = tbl.getElementsByTagName("tr");
+		  for (i = 1; i < tr.length; i++) {
+				 tbl.deleteRow(i); 
+		  }
+		  var x = document.getElementById("myTable").rows[0].cells.length;
+		  for (a = 3; a < x; a++) {
+			  document.getElementById("myTable").rows[0].deleteCell(a); 
+		  }
+	}
+</script>
+<script>
+function myColFunction(){
+tbl = document.getElementById("myTable");
+  tr = tbl.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+  var td = document.createElement('th');
+  if(i!=0)
+   td = document.createElement('td');
+  var input = document.createElement('p');
+  if(i==0) input.innerHTML='COL';
+  if(i!=0) input.innerHTML='0';
+  input.contentEditable=true;
+  td.appendChild(input);
+  tr[i].appendChild(td);
+}
+}
+function myFunction() {
+
+  var tbl = document.getElementById("myTable");
+  var tr = tbl.getElementsByTagName("tr");
+  var len = document.getElementById('myTable').rows[0].cells.length;
+  var tdNew = document.createElement('tr');
+  
+  for (i = 0; i < len; i++) {
+  var td = document.createElement('td');
+  var input = document.createElement('p');
+  input.innerHTML='0';
+  input.contentEditable=true;
+  td.appendChild(input);
+  tdNew.appendChild(td);
+}
+tbl.appendChild(tdNew);
+}
+
+function displayAccordingly() {
+
+    //Call mainMenu the main dropdown menu
+    var mainMenu = document.getElementById('mainMenu');
+
+    //Create the new dropdown menu
+    var whereToPut = document.getElementById('myDiv');
+    var newDropdown = document.createElement('select');
+    newDropdown.setAttribute('id',"newDropdownMenu");
+    whereToPut.appendChild(newDropdown);
+
+    if (mainMenu.value == "Supervised") { 
+
+        var optionRegression=document.createElement("option");
+        optionRegression.text="Regression";
+        newDropdown.add(optionRegression,newDropdown.options[null]);
+
+        var optionClassification=document.createElement("option");
+        optionClassification.text="Classification";
+        newDropdown.add(optionClassification,newDropdown.options[null]);
+
+    } else if (mainMenu.value == "UnSupervised") { 
+
+        var optionClustering=document.createElement("option");
+        optionClustering.text="Clustering";
+        newDropdown.add(optionClustering,newDropdown.options[null]);
+
+        var optionAssocation=document.createElement("option");
+        optionAssocation.text="Assocation";
+        newDropdown.add(optionAssocation,newDropdown.options[null]);
+
+    }
+
+}
+</script>
+
+</head>
+
+<body>
+
+	<div class="w3-container w3-grey">
+		<h1>Template definition Grid</h1>
+	</div>
+
+	<div class="w3-row-padding">
+		<div class="w3-half">
+			<h2>Define data template schema definition</h2>
+			<table border="4" id="myTable">
+				<tr>
+					<th><p contenteditable="true">ACTIVE_COUNT</p></th>
+					<th><p contenteditable="true">TIMEOUTS</p></th>
+					<th><p contenteditable="true">IDLE_COUNT</p></th>
+				</tr>
+			</table>
+			<br>
+			<button onclick="myFunction()">Add Row</button>
+			<button onclick="myColFunction()">Add Col</button>
+			<input type="button" value="CreateTemplate"
+				onclick="startPublishing()" /> <input type="button"
+				value="ResetTemplate" onclick="reset()" /> <br>
+			 <select id="mainMenu" onchange="displayAccordingly()">
+        <option value="">Chose ML Type</option>
+			<option value="Supervised">Supervised</option>
+			<option value="UnSupervised">Un-Supervised</option>
+			</select>
+			<div id="myDiv"></div>
+			<p>* Default ML Algorithm is LinearRegresion</p>
+			<p th:text="${welcome}">!!!!!!</p>
+			<pre id="json"></pre>
+
+		</div>
+		<div class="w3-third">
+			<input type="button" onclick="reset()" value="CLEAR">
+			<pre id="events"> </pre>
+		</div>
+
+	</div>
+
+</body>
+</html>
+
+
+
