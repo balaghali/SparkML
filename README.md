@@ -75,7 +75,7 @@ This repository contains the code to setup Spark ML Stream processor in conjunct
 #### TBD ####
 
 # Contact 
-Please reach out to b.ghali@f5.com or start a conversation here, for more information and additional assistance.
+Please reach out to teja_ghali@yahoo.com or start a conversation here, for more information and additional assistance.
 
 # Copyright
-Copyright 2014-2019 F5 Networks Inc.
+Copyright 2014-2019 @ Janasena org.
